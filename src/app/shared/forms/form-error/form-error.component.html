@@ -1,0 +1,16 @@
+<div class="msg-err p-t-10">
+  <mat-hint *ngIf="isControlHasError()" class="{{text_direction}}">
+    <span class="text-error" *ngIf="form.get(controlName)?.getError('required')">
+      {{controlText}} field is required
+    </span>
+    <span class="text-error" *ngIf="form.get(controlName)?.getError('email')">
+      please enter a valid email
+    </span>
+    <span class="text-error" *ngIf="form.get(controlName)?.getError('minlength')">
+      please enter at least {{form.get(controlName)?.getError('minlength')?.requiredLength}} characters
+    </span>
+    <span class="text-error" *ngIf="form.get(controlName)?.getError('maxlength')">
+      please enter at most {{form.get(controlName)?.getError('maxlength')?.requiredLength}} characters
+    </span>
+  </mat-hint>
+</div>

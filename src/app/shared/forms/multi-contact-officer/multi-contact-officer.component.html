@@ -1,0 +1,45 @@
+<div class="form-group field" [formGroup]="form">
+  <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" *ngIf="label">
+    {{ label }}<span *ngIf="!optional" class="required-filed"> *</span>
+  </mat-label>
+
+  <div [formArrayName]="form_array_name">
+    <div *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+      <div class="officer-row">
+        <div class="form-input">
+          <kt-form-input
+              [form]="getDataGroup(i)"
+              [form_control_name]="'contact_officer_name'"
+              [type]="'text'"
+              [placeholder]="'Name'">
+          </kt-form-input>
+        </div>
+
+        <div class="form-input">
+          <kt-form-input
+              [form]="getDataGroup(i)"
+              [form_control_name]="'email'"
+              [type]="'text'"
+              [placeholder]="'Email'">
+          </kt-form-input>
+        </div>
+
+        <div class="form-input">
+          <kt-form-input
+              [form]="getDataGroup(i)"
+              [form_control_name]="'phone'"
+              [type]="'text'"
+              [placeholder]="'Phone'">
+          </kt-form-input>
+        </div>
+
+        <div class="action">
+          <button class="btn" mat-mini-fab color="light" (click)="i == 0 ? addRow(): removeRow(i)">
+            <mat-icon>{{i == 0 ? 'add' : 'remove'}}</mat-icon>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

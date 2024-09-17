@@ -1,0 +1,17 @@
+<div class="field" [formGroup]="form">
+  <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" *ngIf="label">
+    {{ label }}<span *ngIf="!optional" class="required-filed"> *</span>
+  </mat-label>
+
+
+  <!-- without form_group -->
+  <div class="px-0" *ngIf="!form_group">
+    <mat-form-field appearance="outline" class="w-100" color="primary">
+      <input matInput [disabled]="disabled" [value]="value" [type]="type" formControlName="{{form_control_name}}"
+        [placeholder]="placeholder">
+    </mat-form-field>
+
+    <kt-form-error [form]="form" [controlName]="form_control_name" [controlText]="label">
+    </kt-form-error>
+  </div>
+</div>

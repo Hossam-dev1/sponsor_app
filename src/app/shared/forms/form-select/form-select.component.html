@@ -1,0 +1,18 @@
+<div class="field">
+
+  <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" *ngIf="label">
+    {{ label }} <span *ngIf="!optional" class="required-filed">*</span>
+  </mat-label>
+
+  <mat-form-field *ngIf="!is_multi" [formGroup]="form" appearance="outline" class="w-100" color="primary">
+    <mat-select (selectionChange)="onMatSelectChange($event)" [formControlName]="form_control_name"
+      [placeholder]="placeholder" #singleSelect>
+      <mat-option *ngFor="let item of dataList" [value]="item">
+        {{ item | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <kt-form-error *ngIf="validation_type" [form]="form" [controlName]="form_control_name"
+    [controlText]="label"></kt-form-error>
+</div>

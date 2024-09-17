@@ -1,0 +1,109 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="card-title">{{mode + ' Sponsor' | titlecase}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+    <form [formGroup]="_formData">
+      <div class="form-container">
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'sponsor_name'"
+          [label]="'Sponsor Name'"
+          [validation_type]="'required'"
+          [placeholder]="'Sponsor Name'">
+        </kt-form-input>
+
+        <kt-form-select
+          [form]="_formData"
+          [form_control_name]="'sponsor_type'"
+          [label]="'Sponsor Type'"
+          [placeholder]="'Sponsor Type'"
+          [validation_type]="'required'"
+          [dataList]="sponsorTypeList"
+          ></kt-form-select>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'sponsor_ID'"
+          [label]="'Sponsor ID'"
+          [type]="'number'"
+          [validation_type]="'minlength'"
+          [placeholder]="'094133563'">
+        </kt-form-input>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'phone'"
+          [label]="'Phone Number'"
+          [type]="'number'"
+          [validation_type]="'required'"
+          [placeholder]="'0314133563'">
+        </kt-form-input>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'address'"
+          [label]="'Address'"
+          [placeholder]="'Address'">
+        </kt-form-input>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'email'"
+          [label]="'Email'"
+          [type]="'email'"
+          [placeholder]="'example.com'">
+        </kt-form-input>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'postal_code'"
+          [label]="'Postal Code'"
+          [type]="'number'"
+          [placeholder]="'000 '">
+        </kt-form-input>
+
+          <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'max_limit'"
+          [label]="'Max Limit'"
+          [type]="'number'"
+          [placeholder]="'1000'">
+        </kt-form-input>
+
+        <kt-form-input
+          [form]="_formData"
+          [form_control_name]="'financial_limit'"
+          [label]="'Financial Limit /EGP'"
+          [type]="'number'"
+          [placeholder]="'9999'">
+        </kt-form-input>
+
+        <kt-form-input
+        [form]="_formData"
+        [form_control_name]="'time_limit'"
+        [label]="'Time Limit /Days'"
+        [type]="'number'"
+        [placeholder]="'1000'">
+      </kt-form-input>
+
+      <div class="full-row">
+        <kt-multi-contact-officer
+          [form]="_formData"
+          [form_array_name]="'sponsor_contact_officer'"
+          [label]="'Contact Officers'"
+          [placeholder]="'Contact Officers'">
+        </kt-multi-contact-officer>
+      </div>
+
+      <div class="action">
+        <button (click)="onSubmit()" mat-raised-button color="primary" >Save</button>
+      </div>
+
+      </div>
+    </form>
+  </mat-card-content>
+
+
+</mat-card>
